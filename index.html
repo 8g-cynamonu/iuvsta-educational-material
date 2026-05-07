@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IUVSTA Educational Material</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2a4a;
+  --navy-dark: #111e35;
+  --navy-light: #223560;
+  --accent: #4a90c4;
+  --accent-hover: #3a7ab0;
+  --text: #333;
+  --text-light: #666;
+  --border: #ddd;
+  --bg: #f5f5f5;
+  --white: #fff;
+  --link: #2a6496;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--accent); }
+
+/* HEADER BAR */
+.header-bar {
+  background: var(--navy-dark);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.header-bar .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-search input[type="text"] {
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 2px 0 0 2px;
+  outline: none;
+  width: 180px;
+}
+.header-search input[type="text"]::placeholder { color: rgba(255,255,255,0.5); }
+.header-search input[type="submit"] {
+  padding: 4px 10px;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 0 2px 2px 0;
+}
+
+/* SITE HEADER */
+#site-header {
+  background: var(--navy);
+}
+.header-area {
+  padding: 18px 0 0;
+}
+.header-area .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.header-text {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* NAVBAR */
+.wrapper-navbar {
+  background: var(--navy-light);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+nav.navbar {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.navbar-nav li a {
+  display: block;
+  padding: 12px 14px;
+  color: rgba(255,255,255,0.85);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+  color: #fff;
+  border-bottom-color: var(--accent);
+  background: rgba(255,255,255,0.05);
+  text-decoration: none;
+}
+
+/* PAGE WRAPPER */
+.wrapper { background: var(--bg); }
+#page-wrapper { padding: 30px 0 50px; }
+#page-wrapper .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ENTRY */
+.entry-header {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--navy);
+}
+.entry-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+
+/* INTRO BOX */
+.intro-box {
+  background: #e8f0f7;
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  border-radius: 0 3px 3px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* MODULE TABLE */
+.module-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--border);
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+.module-table thead tr {
+  background: var(--navy);
+  color: #fff;
+}
+.module-table thead th {
+  padding: 10px 16px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+}
+.module-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.module-table tbody tr:last-child { border-bottom: none; }
+.module-table tbody tr:hover { background: #f0f6fb; }
+.module-table td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+.module-num {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  width: 60px;
+}
+.module-title-cell {
+  font-weight: 500;
+  color: var(--navy);
+}
+.module-title-cell a {
+  color: var(--navy);
+  font-weight: 500;
+  text-decoration: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.module-title-cell a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.module-desc {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 3px;
+}
+.badge-free {
+  display: inline-block;
+  background: #27ae60;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  font-family: 'Roboto Condensed', sans-serif;
+  white-space: nowrap;
+}
+.arrow-cell {
+  width: 30px;
+  color: var(--border);
+  font-size: 18px;
+  text-align: center;
+}
+.module-table tbody tr:hover .arrow-cell {
+  color: var(--accent);
+}
+
+/* EDITOR NOTE */
+.editor-note {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--text-light);
+  border-radius: 2px;
+}
+.editor-note strong { color: var(--text); }
+
+/* FOOTER */
+.footer-area {
+  background: var(--navy);
+  padding: 20px 0;
+}
+.footer-area .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-area img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.footer-area .header-text {
+  font-size: 16px;
+}
+.site-footer {
+  background: var(--navy-dark);
+  padding: 12px 0;
+}
+.site-footer .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-footer p {
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+}
+.site-footer a {
+  color: rgba(255,255,255,0.7);
+}
+.footer-login a {
+  color: rgba(255,255,255,0.7);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav { gap: 0; }
+  .navbar-nav li a { padding: 10px 10px; font-size: 11px; }
+  .header-text { font-size: 16px; }
+  .module-table thead { display: none; }
+  .module-table td { display: block; }
+  .site-footer .container { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER BAR -->
+<div class="header-bar">
+  <div class="container">
+    <div class="header-search">
+      <form method="get" action="#" role="search">
+        <input type="text" placeholder="Search…">
+        <input type="submit" value="🔍">
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SITE HEADER -->
+<div id="site-header">
+  <div class="header-area">
+    <div class="container">
+      <div id="logo">
+        <a href="index.html">
+          <img src="https://iuvsta.org/wp-content/uploads/2024/02/cropped-logo-iuvsta-2_1711.jpeg" alt="IUVSTA">
+        </a>
+      </div>
+      <div class="header-text">
+        The International Union for Vacuum Science, Technique and Applications
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="wrapper-navbar">
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <li><a href="https://iuvsta.org/">Home</a></li>
+        <li><a href="https://iuvsta.org/about-iuvsta/">About IUVSTA</a></li>
+        <li><a href="https://iuvsta.org/scientific-activities/">Scientific Activities</a></li>
+        <li class="active"><a href="https://iuvsta.org/educational-activities/">Educational Activities</a></li>
+        <li><a href="https://iuvsta.org/iuvsta-publications/">IUVSTA Publications</a></li>
+        <li><a href="https://iuvsta.org/awards-scholarships/">Awards &amp; Scholarships</a></li>
+        <li><a href="https://iuvsta.org/member-services-2/">Member Services</a></li>
+        <li><a href="https://iuvsta.org/joining-the-union/">Joining the Union</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="wrapper" id="page-wrapper">
+  <div class="container">
+
+    <article>
+      <header class="entry-header">
+        <h1 class="entry-title">IUVSTA Educational Material</h1>
+      </header>
+
+      <div class="entry-content">
+
+        <div class="intro-box">
+          This material has been prepared by experts in their field associated with the IUVSTA. Their aim is to provide material to support lecturers in their teaching activities. Each module consists of a PowerPoint presentation and accompanying presenter notes. The modules are available for free after acknowledging the copyrights and providing your e-mail address.
+        </div>
+
+        <table class="module-table">
+          <thead>
+            <tr>
+              <th style="width:60px;">#</th>
+              <th>Module</th>
+              <th style="width:100px; text-align:center;">Access</th>
+              <th style="width:30px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">1</td>
+              <td class="module-title-cell">
+                <a href="module.html">Fundamentals of Vacuum</a>
+                <div class="module-desc">Gas kinetics · Gas laws · Gas transport · Gas flow · Surface desorption</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">2</td>
+              <td class="module-title-cell">
+                <a href="module.html">Total Pressure Measurement in Vacuum</a>
+                <div class="module-desc">Gauges · Measurement principles · Calibration</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">3</td>
+              <td class="module-title-cell">
+                <a href="module.html">Gas Transfer Pumps</a>
+                <div class="module-desc">Rotary vane · Turbomolecular · Drag pumps</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">4</td>
+              <td class="module-title-cell">
+                <a href="module.html">Partial Pressure Analyzers and Analysis</a>
+                <div class="module-desc">RGA · Mass spectrometry · Residual gas analysis</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">5</td>
+              <td class="module-title-cell">
+                <a href="module.html">Thin Film Growth</a>
+                <div class="module-desc">Evaporation · CVD · Sputter deposition · Nucleation and growth</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">6</td>
+              <td class="module-title-cell">
+                <a href="module.html">Leak Detection</a>
+                <div class="module-desc">Helium leak detection · Methods · Instruments</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">7</td>
+              <td class="module-title-cell">
+                <a href="module.html">Capture Pumps</a>
+                <div class="module-desc">Cryopumps · Ion pumps · Getter pumps</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">8</td>
+              <td class="module-title-cell">
+                <a href="module.html">Vacuum Systems</a>
+                <div class="module-desc">System design · Pumping stacks · Pressure calculations</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">9</td>
+              <td class="module-title-cell">
+                <a href="module.html">Vacuum Materials</a>
+                <div class="module-desc">Outgassing · Material selection · Seals &amp; flanges</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">10</td>
+              <td class="module-title-cell">
+                <a href="module.html">Electron Spectroscopies</a>
+                <div class="module-desc">XPS · AES · Surface analysis techniques</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+            <tr onclick="location.href='module.html'" style="cursor:pointer;">
+              <td class="module-num">11</td>
+              <td class="module-title-cell">
+                <a href="module.html">History of Vacuum Science</a>
+                <div class="module-desc">Origins · Key figures · Milestones in vacuum technology</div>
+              </td>
+              <td style="text-align:center;"><span class="badge-free">Free</span></td>
+              <td class="arrow-cell">›</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <div class="editor-note">
+          <strong>Series Editor:</strong> Prof. J-J Pireaux, Facultés Universitaires Notre-Dame du Paix, Namur, Belgium. Material updated to Microsoft PowerPoint format during the 2007–2010 triennium.
+        </div>
+
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-area">
+  <div class="container">
+    <img src="https://iuvsta.org/wp-content/uploads/2024/02/cropped-logo-iuvsta-2_1711.jpeg" alt="IUVSTA">
+    <div class="header-text">
+      The International Union for Vacuum Science, Technique, and Applications
+    </div>
+  </div>
+</div>
+<div class="site-footer">
+  <div class="container">
+    <p>Copyright &copy; 2026 IUVSTA. All rights reserved.</p>
+    <div class="footer-login"><a href="#">Member's Login</a></div>
+  </div>
+</div>
+
+</body>
+</html>
